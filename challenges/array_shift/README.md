@@ -13,4 +13,4 @@ Insert/splice value at the index of 'middle'
 Return value
 
 ## Solution
-![array_shift](/assets/array_shift.jpg)
+![array_shift](/assets/array_shift.png)
