@@ -32,3 +32,42 @@ class linked_list:
             cur = cur.next
         print(value)
         return value
+
+
+    def append(self, val):
+        current = self.head
+        while current:
+            if current.next == None:
+                current.next = Node(val)
+                return self.__str__()
+            else:
+                current = current.next
+                self.head = Node(val)
+                return self.__str__()
+
+    def insert_before(self, value, new_val):
+        if self.includes(value):
+            new_node = Node(new_val)
+            current = self.head
+            while current.next:
+                if current.next.value == value:
+                    new_node = current.next
+                    current.next = new_node.next
+                    return self.__str__()
+                else:
+                    current = current.next
+                    return self.__str__()
+
+
+    def insert_after(self, existing, val):
+        if self.includes(existing):
+            current = self.head
+            while current:
+                if current.val == existing:
+                    new_node = current.next
+                    new_node.next = current.next
+                    return self.__str__()
+                else:
+                    current = current.next
+                    return self.__str__()
+
