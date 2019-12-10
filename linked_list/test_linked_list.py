@@ -61,7 +61,12 @@ def test_insert_two():
     actual = my_list.head.data
     assert actual == expected
 
+def test_append(empty):
+    expected = "z"
+    empty.append('z')
+    assert empty.includes('z')
 
-@pytest.fixture(autouse=True)
-def clean():
-    my_list = []
+def test_append_end(lst):
+    expected = "a, b, c, d, e"
+    lst.append('e')
+    assert lst.includes('e')
