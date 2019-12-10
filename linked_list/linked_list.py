@@ -1,37 +1,38 @@
 class Node:
-    def __init__(self, data=None):
-        self.data = data
-        self.next = None
+    def __init__(self, value, next = None):
+        self.value = value
+        self.next =  next
 
 
 class linked_list:
     def __init__(self):
-        self.head = Node()
+        self.head = None
 
-    def insert(self, desired_location):
-        new_node = Node(desired_location)
-        new_node.next = self.head
-        self.head = new_node
-        return desired_location
+# Insert function
 
-    def includes(self, data):
-        if not self.head:
-            return False
-        cur = self.head
-        while cur:
-            if cur.data == data:
+    def insert(self, value):
+        node = Node(value, self.head)
+        self.head = node
+
+# Includes Function
+
+    def includes(self, value):
+        current = self.head
+        while current:
+            if current.value == value:
                 return True
-            cur = cur.next
+            current = current.next
         return False
 
-    def to_list(self):
-        value = " "
-        cur = self.head
-        while cur.next != None:
-            value += " " + str(cur.data)
-            cur = cur.next
-        print(value)
-        return value
+# String Method
+
+    def __str__(self):
+        as_string = 'LinkedList : '
+        current = self.head
+        while current:
+            as_string = f'[{current.value}] ->'
+            current = current.next
+        return as_string
 
 
     def append(self, val):
@@ -71,3 +72,28 @@ class linked_list:
                     current = current.next
                     return self.__str__()
 
+
+
+########################## DEMO ###############################
+
+
+
+if __name__ == '__main__':
+    ll = linked_list()
+    ll.insert('apples')
+    assert ll.head.value == 'apples'
+    ll.insert('bananas')
+
+
+    assert ll.head.value == 'bananas'
+    assert ll.head.next.value == 'apples'
+    assert ll.head.next.next == None
+
+    assert ll.includes('bananas') == True
+    assert ll.includes('apples') == True
+    assert ll.includes('candy') == False
+
+    ll = linked_list()
+    assert ll.includes('bananas') == False
+
+    print('Success')
