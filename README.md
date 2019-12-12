@@ -10,4 +10,6 @@
 
 ##4. Code Challenge Four - [Linked List](https://github.com/Dougie105/python-data-structures-and-algorithms/tree/master/data-structures/linked_list)<br>
 
-##5. Code Challenge Five - [Linked List Merge](###)
+##5. Code Challenge Five - [Linked List Merge](https://github.com/Dougie105/python-data-structures-and-algorithms/tree/master/challenges/ll_merge)<br>
+
+##6. Code Challenge Six - 
