@@ -1,12 +1,12 @@
 class Node:
     '''Create a Node class that has properties for the value stored in the Node, and a pointer to the next node.'''
-    def __init__(self,item):
-        self.data = item
-
+    def __init__(self,value=None):
+        self.value = value
+        self.next = None
 
 class Stack:
     '''Create a Stack class that has a top property. It creates an empty Stack when instantiated. This object should be aware of a default empty value assigned to top when the stack is created.'''
-    def __init__(self, top):
+    def __init__(self):
         self.top = None
 
     def push(self, item):
@@ -17,29 +17,19 @@ class Stack:
 
     def pop(self):
         '''Define a method called pop that does not take any argument, removes the node from the top of the stack, and returns the node’s value.'''
-        temp = self.top
-        if temp.next:
-            temp = temp.next
-            temp.next = None
-            return temp
-        else:
-            return("Stack is empty")
-
-    def includes(self, value):
-        '''Check to see if the stack includes the values given'''
         current = self.top
-        if not self.top:
-            return False
-        while current:
-            if current.value == value:
-                return True
-            current = current.next
-        return False
+        if current:
+            self.top = current.next
+        else:
+            print('Stack is empty.')
 
     def peek(self):
         '''Define a method called peek that does not take an argument and returns the value of the node located on top of the stack, without removing it from the stack.'''
-        current = self.top
-        return current.next.value
+        if self.top == None:
+            return None
+        else:
+            current = self.top
+            return current.value
 
     def isEmpty(self):
         '''Define a method called isEmpty that does not take an argument, and returns a boolean indicating whether or not the stack is empty.'''
@@ -48,7 +38,7 @@ class Stack:
 
 class Queue:
     '''Create a Queue class that has a front property. It creates an empty Queue when instantiated. This object should be aware of a default empty value assigned to front when the queue is created.'''
-    def __init__(self, front, rear):
+    def __init__(self):
         self.front = None
         self.rear = None
 
@@ -63,29 +53,20 @@ class Queue:
 
     def dequeue(self):
         '''Define a method called dequeue that does not take any argument, removes the node from the front of the queue, and returns the node’s value.'''
-        temp = self.front
-        if self.temp:
-            self.front = temp.next
-            temp = None
-            return temp
+        current = self.front
+        if current != None:
+            self.front = current.next
+            return self.front
         else:
             print("Queue is empty.")
 
-    def includes(self, value):
-        '''Check to see if the stack includes the values given'''
-        current = self.front
-        if not current:
-            return False
-        while current:
-            if current.value == value:
-                return True
-            current = current.next
-        return False
 
     def peek(self):
         '''Define a method called peek that does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.'''
+        if self.front == None:
+            return None
         current = self.front
-        return self.front.data
+        return self.front.value
 
     def isEmpty(self):
         '''Define a method called isEmpty that does not take an argument, and returns a boolean indicating whether or not the queue is empty.'''
