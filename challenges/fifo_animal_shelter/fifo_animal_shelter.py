@@ -39,6 +39,9 @@ class Queue:
                 end_next = end_next.next
 
     def enqueue(self, value):
+        '''
+        Adding an animal to a queue and setting its front and end
+        '''
         new_node = Node(value)
         if self.is_empty():
             self.front = self.end = new_node
@@ -46,6 +49,9 @@ class Queue:
             self.end.next = self.end = new_node
 
     def dequeue(self):
+        '''
+        Removing an animal from the queue
+        '''
         if self.is_empty():
             raise EmptyListError("The List is Empty")
         removed = self.front
@@ -53,11 +59,17 @@ class Queue:
         return removed.value
 
     def peek(self):
+        '''
+        Seeing what animal is on the top of the queue
+        '''
         if not self.is_empty():
             return self.front.value
         raise EmptyListError("The List is Empty")
 
     def is_empty(self):
+        '''
+        Checking i the queue is empty
+        '''
         if self.front:
             return False
         return True
@@ -65,9 +77,6 @@ class Queue:
 
 class Animal_Shelter:
     def __init__(self):
-        """
-    Creating 2 queues for cats and dogs.
-    """
         self.dog_queue = Queue()
         self.cat_queue = Queue()
 
