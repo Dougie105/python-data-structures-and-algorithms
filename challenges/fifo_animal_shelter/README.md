@@ -10,4 +10,4 @@ Dequeue: Take in a string of `'cat'` or `'dog'` as the input and return the firs
 O(1) for time and space
 
 ## Solution
-![White Board Image](./asset/fifo-animal-shelter.png)
+![White Board Image](./asset/fifo_animal_shelter.png)
