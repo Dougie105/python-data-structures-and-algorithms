@@ -14,7 +14,7 @@ class LinkedList:
 
 
     def insert(self, value):
-        '''  
+        '''
         Insert function checks to see if the list is empty. If the list is empty the value is made the head and inserted. If it is not the head, it makes the current head the next node and makes itself the head.
         '''
         node = Node(value)

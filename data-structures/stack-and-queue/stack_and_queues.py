@@ -56,7 +56,6 @@ class Queue:
         current = self.front
         if current != None:
             self.front = current.next
-            return self.front
         else:
             print("Queue is empty.")
 
