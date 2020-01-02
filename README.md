@@ -24,4 +24,6 @@
 
 ### 7. [FizzBuzz Tree](https://github.com/Dougie105/python-data-structures-and-algorithms/tree/master/challenges/fizz_buzz_tree)<br>
 
-### 9. [Breadth-First Binary Tree](https://github.com/Dougie105/python-data-structures-and-algorithms/tree/master/challenges/breadth_first)
+### 9. [Breadth-First Binary Tree](https://github.com/Dougie105/python-data-structures-and-algorithms/tree/master/challenges/breadth_first)<br>
+
+### 9. [Find-Max Binary Tree](https://github.com/Dougie105/python-data-structures-and-algorithms/tree/master/challenges/find_maximum_value)
