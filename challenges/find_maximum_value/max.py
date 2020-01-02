@@ -1,145 +1,85 @@
 class Queue:
-    """Create a queue calss"""
-
     def __init__(self):
         self.front = None
-        self.rear = None
+        self.end = None
 
     def enqueue(self, value):
-        """Add to your queue"""
-        new_node = Node(value)
-        if self.rear:
-            self.rear.next = new_node
+        if isinstance(value, Node):
+            node = value
         else:
-            self.front = new_node
-        self.rear = new_node
+            node = Node(value)
+
+        if not self.front:
+            self.front = node
+            self.end = node
+            return
+
+        if self.end:
+            self.end.next = node
+            self.end = node
 
     def dequeue(self):
-        """Remove from queue"""
-        current = self.front
-        if current != None:
-            self.front = current.next
-            return current
-        else:
-            print("Queue is empty.")
-
-    def peek(self):
-        """Check value of whats next in the queue"""
-        if self.front == None:
+        if not self.front:
             return None
-        current = self.front
-        return self.front.value
+        node = self.front
+        self.front = node.next
+        return node
 
-    def isEmpty(self):
-        """Returns if the queue is empty or not"""
-        return self.front == None
+    def is_empty(self):
+        if not self.front:
+            return True
+        return False
 
 
 class Node:
     """Set up a node class"""
 
-    def __init__(self, value=None):
+    def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
         self.next = None
-        self.rear = None
 
 
 class BinaryTree:
     def __init__(self):
         self.root = None
 
-    def pre_order(self, node=None, arr=[]):
-        node = node or self.root
-
-        arr.append(node.value)
-
-        if node.left:
-            self.pre_order(node.left, arr)
-        if node.right:
-            self.pre_order(node.right, arr)
-        return arr
-
-    def in_order(self, node=None, arr=[]):
-        node = node or self.root
-        if node.left:
-            self.in_order(node.left, arr)
-
-        arr.append(node.value)
-
-        if node.right:
-            self.in_order(node.right, arr)
-        return arr
-
-    def post_order(self, node=None, arr=[]):
-        node = node or self.root
-        if node.left:
-            self.post_order(node.left, arr)
-        if node.right:
-            self.post_order(node.right, arr)
-
-        arr.append(node.value)
-
-        return arr
-
-
-def breadth_first(tree):
-    """Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered."""
-
-    if tree.root is None:
-        return None
-    queue = Queue()
-    lst = []
-    queue.enqueue(tree.root)
-    while queue.front:
-        node = queue.front.value
-        lst.append(node.value)
-        if node.left is not None:
-            queue.enqueue(node.left)
-        if node.right is not None:
-            queue.enqueue(node.right)
-        queue.dequeue()
-    return lst
-
-
-def find_maximum_value(tree):
-    """Write an instance method called find-maximum-value and return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric."""
-
-    if tree.root is None:
-        return None
-
-    q = Queue()
-    highest = tree.root.value
-    q.enqueue(tree.root)
-
-    while q.isEmpty():
-        current = q.dequeue()
-        if current.value > highest:
-            highest = current.value
-        if current.left:
-            q.enqueue(current.left)
-        if current.right:
-            q.enqueue(current.right)
-    return highest
-
-
-class BinarySearchTree(BinaryTree):
     def add(self, value):
         node = Node(value)
         if not self.root:
             self.root = node
-            return value
-        current = self.root
-        while True:
-            if value < current.value:
+        else:
+            current = self.root
+            q = Queue()
+            q.enqueue(current)
+            while not q.is_empty():
+                current = q.dequeue()
                 if not current.left:
                     current.left = node
                     return
-                current = current.left
-            else:
+                else:
+                    q.enqueue(current.left)
                 if not current.right:
                     current.right = node
                     return
-                current = current.right
+                else:
+                    q.enqueue(current.right)
 
+    def find_maximum_value(self):
+        if not self.root:
+            return None
+
+        q = Queue()
+        q.enqueue(self.root)
+        maximum_value = self.root.value
+
+        while not q.is_empty():
+            current = q.dequeue()
+            if current.value > maximum_value:
+                maximum_value = current.value
+            if current.left:
+                q.enqueue(current.left)
+            if current.right:
+                q.enqueue(current.right)
+        return maximum_value
