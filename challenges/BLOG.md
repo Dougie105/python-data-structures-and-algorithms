@@ -1,5 +1,8 @@
 # Show the sorted output of this array.. [8,4,23,42,16,15]
 
+## Whiteboard
+![selection_sort][assets/select_sort.png]
+
 ## Code
 
 def selection_sort(array):
