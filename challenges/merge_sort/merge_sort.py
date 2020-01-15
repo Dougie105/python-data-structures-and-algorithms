@@ -37,5 +37,5 @@ def merge_sort(lst):
     if len(lst) <= 1:
         return lst
     else:
-        left, right = split(lst)
-        return merge_sorted_lists(merge_sort(left), merge_sort(right))
+        L, R = split(lst)
+        return merge_sorted_lists(merge_sort(L), merge_sort(R))
