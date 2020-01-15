@@ -1,7 +1,7 @@
-# Show the sorted output of this array.. [8,4,23,42,16,15]
+# Selection Sort Method
 
 ## Whiteboard
-![selection_sort][assets/select_sort.png]
+![selection_sort](assets/select_sort.png)
 
 ## Code
 
@@ -52,3 +52,42 @@ assert array == expected
 ##### Your pointer now stands on 42 and compars itself to the 23. Since 23 is lowest_value.
 ##### New array = [4, 8, 15, 16, 23, 42]
 ##### Your array is now sorted and is done running.
+
+# Merge Sort
+
+## Whiteboard
+![merge_sort](assets/merge_sort.png)
+
+## Code
+
+def merge_sort(array):
+        merge_sort2(array, 0, len(array)-1)
+
+def merge_sort2(array, first, last):
+        if first < last:
+
+
+## Tests
+
+expected = [4,8,15,16,23,42]
+array = [8,4,23,42,16,15]
+merge_sort(array)
+
+assert array == expected
+
+
+## Walkthrough
+
+                [5,1,3,2,4] # Input
+                /      \
+                [5,1,3]  [2,4] # Split the list into sub lists based on the mid
+                /   \    \  \
+                [5,1] [3]  [2] [4]
+                / \     \    \   \
+                [5] [1]  [3]  [2] [4] # Separate the list to the smallest parts
+                \   /   /    /   /
+                [1,5]  [3]  [2] [4] # Sort the value as you merge the lists back together
+                |   /    /  /
+                [1,3,5]   [2,4]
+                \     /
+                [1,2,3,4,5] # Output
