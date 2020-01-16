@@ -5,12 +5,13 @@
 
 ## Code
 
+```python
 def merge_sort(array):
         merge_sort2(array, 0, len(array)-1)
 
 def merge_sort2(array, first, last):
         if first < last:
-
+```
 
 ## Tests
 

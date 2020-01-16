@@ -5,6 +5,7 @@
 
 ## Code
 
+```python
 def selection_sort(array):
     x = len(array)
 
@@ -18,6 +19,7 @@ def selection_sort(array):
 
         array[lowest_value], array[i] = array[i], array[lowest_value]
     return array
+```
 
 ## Tests
 

@@ -1,10 +1,7 @@
 # Quick Sort
 
-## Whiteboard
-![quick_sort](assets/quick_sort.png)
-
 ## Code and Walkthrough
-
+```python
 def quick_sort(lst):
 
         '''grab the length of the list'''
@@ -31,7 +28,7 @@ def quick_sort(lst):
 
         '''this will keep running until there are no values left to compare and return all the values in sorted order'''
         return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
-
+```
 
 
 ## Tests
