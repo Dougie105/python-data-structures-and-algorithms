@@ -4,7 +4,7 @@ def quick_sort(lst):
         length = len(lst)
 
         '''if the list is empty or equal to one just return the list'''
-        if length <=1:
+        if len(lst) <=1:
                 return lst
 
         else:
