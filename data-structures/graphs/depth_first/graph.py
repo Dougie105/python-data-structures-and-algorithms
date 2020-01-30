@@ -23,16 +23,15 @@ class Graph:
         adjacencies = self.alike[start]
 
         adjacencies.append((end, weight))
-        return self.value
 
     def get_nodes(self):
         return self.alike.keys()
 
     def get_neighbors(self, vertex):
-        breakpoint()
         return self.alike[vertex]
 
 
 class Vertex:
     def __init__(self, value):
         self.value = value
+        self.alike = value
